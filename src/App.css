@@ -64,9 +64,9 @@ header h1{
 }
 
 .App{
-  overflow-y: hidden;
+  overflow-x: hidden;
   margin:auto;
-  height:100vh;
+  min-height:100vh;
   width:100vw;
 }
 
@@ -78,8 +78,27 @@ header h1{
   padding:15px;
   border-radius: 100%;
   background:rgb(49, 39, 255);
+  transition:background .3s;
 }
 
 .plus-icon{
   font-size: 2rem;
+}
+
+.plus-icon-div:hover{
+  background:rgb(100, 92, 255);
+  cursor:pointer;
+}
+
+.loading{
+  position:absolute;
+  width:100vw;
+  height:30px;
+  margin: 50px 0 0 0;
+}
+
+.loading > h1{
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
 }

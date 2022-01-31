@@ -55,6 +55,7 @@ table {
     width:300px;
     background:rgb(248, 226, 100);
     transition:transform .3s ease-out;
+    justify-self: center;
 }
 
 .card > .title-div{

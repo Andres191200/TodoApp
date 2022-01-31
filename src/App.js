@@ -1,18 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/card.jsx';
+
+import { getFirestore, collection, getDocs, connectFirestoreEmulator } from "firebase/firestore";
+import { db } from './firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
-  const [cards, setCards] = useState([{ title: 'Card 1 title', content: 'this is an example toDo card' }, { title: 'Card 2 title', content: 'Card 2 content' }])
+
+  const [cards, setCards] = useState([])
+
+  useEffect(async () => {
+    const querySnapshot = await getDocs(collection(db, "ToDos")); //DATABASE INSTANCE AND NAME OF THE COLLECTION
+    var todos = []
+    querySnapshot.forEach((doc) => {
+      todos.push({
+        id: doc.id, ...doc.data()
+      });
+    });
+    setCards(todos);
+  }, [cards])
+
+
+
 
   return (
     <div className="App">
       <header>
         <h1>Todo App</h1>
       </header>
+
+      <div className="loading">
+          <h1>{!document.contains(document.getElementById('card')) && 'Loading...'}</h1>
+      </div>
 
       <div className="todo-cards">
         {

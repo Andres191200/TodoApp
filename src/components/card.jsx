@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/card.css'
 const Card = ({ title, content }) => {
     return (
-        <div className="card">
+        <div className="card" id="card">
             <div className="title-div">
                 <h1>{title}</h1>
                 <div className="card-icons-container">
