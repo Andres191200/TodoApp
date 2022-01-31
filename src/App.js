@@ -2,8 +2,11 @@ import { useState } from 'react';
 import './App.css';
 import Card from './components/card.jsx';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
-  const [cards, setCards] = useState([{ title: 'Card 1 title', content: 'this is an example toDo card' }, {title: 'Card 2 title', content:'Card 2 content'}])
+  const [cards, setCards] = useState([{ title: 'Card 1 title', content: 'this is an example toDo card' }, { title: 'Card 2 title', content: 'Card 2 content' }])
 
   return (
     <div className="App">
@@ -18,13 +21,12 @@ function App() {
               <Card title={card.title} content={card.content} />
             )
           })
-
-          
-          
         }
       </div>
 
-
+      <div className="pencil-icon-div">
+        <FontAwesomeIcon icon={faPencilAlt} />
+      </div>
 
     </div>
   );

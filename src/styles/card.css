@@ -54,6 +54,7 @@ table {
     height:200px;
     width:300px;
     background:rgb(248, 226, 100);
+    transition:transform .3s ease-out;
 }
 
 .card > .title-div{
@@ -62,6 +63,7 @@ table {
     font-weight: bold;
     justify-content: center;
     height:15%;
+    margin-top:5px;
 }
 
 .card > .content-div{
@@ -72,7 +74,11 @@ table {
     margin: 10px .5rem;
 }
 
-.card > div{
+.card > div:not(.pencil-icon-div){
     display:flex;
     flex-direction: column;
+}
+
+.card:hover{
+    transform: scale(1.07);
 }
