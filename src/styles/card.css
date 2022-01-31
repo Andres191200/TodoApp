@@ -61,7 +61,8 @@ table {
     display:flex;
     font-size:1.5rem;
     font-weight: bold;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     height:15%;
     margin-top:5px;
 }
@@ -74,7 +75,7 @@ table {
     margin: 10px .5rem;
 }
 
-.card > div:not(.pencil-icon-div){
+.card > div:not(.pencil-icon-div, .title-div){
     display:flex;
     flex-direction: column;
 }
@@ -82,3 +83,15 @@ table {
 .card:hover{
     transform: scale(1.07);
 }
+
+.delete-card-icon, .edit-card-icon{
+    font-size: 20px;
+    transition:.3s;
+    margin: 0 5px;
+}
+
+.delete-card-icon:hover, .edit-card-icon:hover{
+    color:#666;
+    cursor:pointer;
+}
+

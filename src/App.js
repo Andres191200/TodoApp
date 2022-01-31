@@ -3,7 +3,7 @@ import './App.css';
 import Card from './components/card.jsx';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [cards, setCards] = useState([{ title: 'Card 1 title', content: 'this is an example toDo card' }, { title: 'Card 2 title', content: 'Card 2 content' }])
@@ -24,8 +24,8 @@ function App() {
         }
       </div>
 
-      <div className="pencil-icon-div">
-        <FontAwesomeIcon icon={faPencilAlt} />
+      <div className="plus-icon-div">
+        <FontAwesomeIcon className="plus-icon" icon={faPlus} />
       </div>
 
     </div>

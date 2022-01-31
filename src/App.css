@@ -70,16 +70,16 @@ header h1{
   width:100vw;
 }
 
-.pencil-icon-div{
+.plus-icon-div{
   position:absolute;
   display:inline-block;
   right:20px;
   bottom:20px;
-  padding:20px;
+  padding:15px;
   border-radius: 100%;
   background:rgb(49, 39, 255);
 }
 
-.pencil-icon-div > *{
-  font-size: 1.5rem;
+.plus-icon{
+  font-size: 2rem;
 }
