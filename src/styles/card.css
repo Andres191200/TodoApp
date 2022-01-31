@@ -48,22 +48,31 @@ table {
 	border-spacing: 0;
 }
 
-header h1{
-  font-size:30px;
-  text-align: center;
+.card{
+    margin:20px;
+    border-radius:4px;
+    height:200px;
+    width:300px;
+    background:rgb(248, 226, 100);
 }
 
-.todo-cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  height:90vh;
-  width:95%;
-  margin:auto;
-  gap:2rem;
+.card > .title-div{
+    display:flex;
+    font-size:1.5rem;
+    font-weight: bold;
+    justify-content: center;
+    height:15%;
 }
 
-.App{
-  margin:auto;
-  height:100vh;
-  width:100vw;
+.card > .content-div{
+    height:85%;
+}
+
+.card > div > h1{   
+    margin: 10px .5rem;
+}
+
+.card > div{
+    display:flex;
+    flex-direction: column;
 }
