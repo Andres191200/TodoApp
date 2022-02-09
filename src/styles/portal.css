@@ -56,6 +56,8 @@ table {
 
 .new-card-container{
     height:60vh;
+	display:flex;
+	justify-content: center;
     max-width: 25vw;
     background-color: #FFF;
     position:absolute;
@@ -67,22 +69,51 @@ table {
 }
 
 .new-card-container > form{
-	width:100%;
+	width:80%;
 	height:100%;
 	display:flex;
 	flex-direction: column;
 	align-items: center;
-	background:violet;
 }
 
 .new-card-container > form > label{
 	align-self: flex-start;
 }
 
-form > input,  form > label{
-	padding:.5rem;
+form > input{
+	padding:.5rem 5px;
+}
+
+
+form > label{
+	font-size: 1.2rem !important;
+	margin-top:1rem;
+	color: #039ee6;
 }
 
 form > input, .card-content{
-	width:80%;
+	width:98%;
+}
+
+form > *{
+	outline-color: #039ee6;
+}
+
+.card-content{
+	resize: none;
+	padding: 0 5px;
+}
+
+.submit-new-card-btn{
+	margin-top:.5rem;
+	background: #039ee6;
+	border:none;
+	border-radius: 4px;
+	color:#FFF;
+	padding:.5rem 2.5rem;
+}
+
+.submit-new-card-btn, .card-content, form > input, form > label{
+	font: 1rem -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; ;
+	font-weight: 500;
 }
