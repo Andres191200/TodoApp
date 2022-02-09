@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/card.jsx';
+import Portal from './components/portal';
 
 import { getFirestore, collection, getDocs, doc, setDoc, addDoc, query } from "firebase/firestore";
 import { db } from './firebase';
@@ -11,6 +12,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 function App() {
 
   const [cards, setCards] = useState([]);
+  const [trigger, setTrigger] = useState(false);
   const [emptyCardCollection, setEmptyCardCollection] = useState(false)
 
   useEffect(async () => { //READ DATA FROM DATABASE WHEN THE PAGE LOADS
@@ -43,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <button id='buton' onClick={addCardToDatabase}>UPLOAD</button>
+      {/* <button id='buton' onClick={addCardToDatabase}>UPLOAD</button>  */}
       <header>
         <h1>Todo App</h1>
       </header>
@@ -63,8 +65,12 @@ function App() {
       </div>
 
       <div className="plus-icon-div">
-        <FontAwesomeIcon className="plus-icon" icon={faPlus} />
+        <button onClick={() => setTrigger(!trigger)}>
+          <FontAwesomeIcon className="plus-icon" icon={faPlus}/>
+        </button>
       </div>
+
+      <Portal trigger={trigger} />
 
     </div>
   );

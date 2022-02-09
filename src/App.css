@@ -56,7 +56,7 @@ header h1{
 
 .todo-cards{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   height:90vh;
   width:95%;
   margin:auto;
@@ -75,19 +75,29 @@ header h1{
   display:inline-block;
   right:20px;
   bottom:20px;
-  padding:15px;
   border-radius: 100%;
   background:rgb(49, 39, 255);
-  transition:background .3s;
 }
 
 .plus-icon{
   font-size: 2rem;
+  color:#000;
 }
 
-.plus-icon-div:hover{
-  background:rgb(100, 92, 255);
+.plus-icon-div > button:hover{
+  background-color: rgb(74, 197, 241);
   cursor:pointer;
+  
+}
+
+.plus-icon-div > button{
+  transition:background .3s;
+  border-radius: 100%;
+  height:100%;
+  width:100%;
+  background-color: rgb(51, 161, 201);
+  padding:18px;
+  border:none;
 }
 
 .loading{
