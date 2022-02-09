@@ -70,7 +70,7 @@ function App() {
         </button>
       </div>
 
-      <Portal trigger={true} />
+      <Portal trigger={trigger} setTrigger={setTrigger} />
 
     </div>
   );
