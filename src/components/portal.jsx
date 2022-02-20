@@ -1,20 +1,39 @@
 import '../styles/portal.css';
 
-const closeNewCardPopUp = (event,setTrigger,trigger) =>{
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../firebase';
+
+const closeNewCardPopUp = (event, setTrigger, trigger) => {
     event.preventDefault();
     setTrigger(!trigger);
 }
 
-const Portal = ({ trigger, setTrigger }) => {
+const saveNewCard = (event, setTrigger, trigger, cards, setCards) => {
+
+    const title = document.getElementById('card-title').value;
+    const description = document.getElementById('card-content').value;
+    const form = document.getElementById('new-card-form');
+    event.preventDefault();
+    if ((title === null || title.match(/^ *$/) !== null) || (description === null || description.match(/^ *$/) !==null)){
+        alert('NO');
+    } else {
+        addDoc(collection(db, "todos"), { title, description });
+        setCards([...cards,{ title, description, id:cards.length+1 }]);
+        console.log(cards);
+        closeNewCardPopUp(event, setTrigger, trigger);
+    }
+}
+
+const Portal = ({ trigger, setTrigger, cards, setCards }) => {
     return (trigger) ? (
         <div className="new-card-main-container">
             <div className="new-card-container">
-                <form >
-                    <button className="close-btn" onClick={(event) => closeNewCardPopUp(event,setTrigger,trigger)}>X</button>
-                    <label for="card-title">Title</label>
-                    <input type="text" name="card-title"></input>
-                    <label for="card-content">Content</label>
-                    <textarea className="card-content" name="card-content"></textarea>
+                <form id="new-card-form" onSubmit={(event) => saveNewCard(event, setTrigger, trigger, cards, setCards)}>
+                    <button className="close-btn" onClick={(event) => closeNewCardPopUp(event, setTrigger, trigger)}>X</button>
+                    <label htmlFor="card-title">Title</label>
+                    <input type="text" name="card-title" id="card-title"></input>
+                    <label htmlFor="card-content">Content</label>
+                    <textarea className="card-content" name="card-content" id="card-content"></textarea>
                     <div className="submit-btn-container">
                         <button type="submit" className="submit-new-card-btn">Create</button>
                     </div>

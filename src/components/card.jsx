@@ -1,7 +1,7 @@
 import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/card.css'
-const Card = ({ title, content }) => {
+const Card = ({ title, description }) => {
     return (
         <div className="card" id="card">
             <div className="title-div">
@@ -12,7 +12,7 @@ const Card = ({ title, content }) => {
                 </div>
             </div>
             <div className="content-div">
-                <h1>{content}</h1>
+                <h1>{description}</h1>
             </div>
         </div>
     )

@@ -12,30 +12,14 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 function App() {
 
   const [cards, setCards] = useState([]);
+  const [collectionID, setCollectionID] = useState();
   const [trigger, setTrigger] = useState(false);
   const [emptyCardCollection, setEmptyCardCollection] = useState(false)
 
-  useEffect(async () => { //READ DATA FROM DATABASE WHEN THE PAGE LOADS
-    const querySnapshot = await getDocs(collection(db, "ToDos")); //DATABASE INSTANCE AND NAME OF THE COLLECTION
-    var todos = []
-    querySnapshot.forEach((doc) => {
-      todos.push({
-        id: doc.id, ...doc.data()
-      });
-      //querySnapshot.size RETURNS NUMBER OF DOCUMENTS IN A COLLECTION
-    });
-    if(todos.length === 0) setEmptyCardCollection(true);
+  useEffect(async () => {
+    if(cards.length===0) setEmptyCardCollection(true);
     else setEmptyCardCollection(false);
-    setCards(todos);
   }, [cards]);
-
-  async function addCardToDatabase() {
-    await addDoc(collection(db, 'ToDos'), {
-      id: cards.length + 1,
-      title: `card ${cards.length + 1} title`,
-      content: 'content example'
-    })
-  }
 
   const loadingCards = () => {
     if(emptyCardCollection) return 'No cards';
@@ -54,12 +38,16 @@ function App() {
         <h1>{loadingCards()}</h1>
       </div>
 
-      <div className="todo-cards">
+      <div className="todo-cards" id="todo-cards">
         {
+          
           cards.map(card => {
             return (
-              <Card title={card.title} content={card.content} />
+              console.log(card),
+              <Card title={card.title} description={card.description} key={card.id}/>
+              
             )
+            
           })
         }
       </div>
@@ -70,7 +58,7 @@ function App() {
         </button>
       </div>
 
-      <Portal trigger={trigger} setTrigger={setTrigger} />
+      <Portal trigger={trigger} setTrigger={setTrigger} cards={cards} setCards={setCards}/>
 
     </div>
   );
