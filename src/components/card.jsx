@@ -7,8 +7,12 @@ const Card = ({ title, description }) => {
             <div className="title-div">
                 <h1>{title}</h1>
                 <div className="card-icons-container">
-                    <FontAwesomeIcon className="edit-card-icon" icon={faPencilAlt} />
-                    <FontAwesomeIcon className="delete-card-icon" icon={faTrashAlt} />
+                    <div>
+                        <FontAwesomeIcon className="edit-card-icon card-icon" icon={faPencilAlt} />
+                    </div>
+                    <div>
+                        <FontAwesomeIcon className="delete-card-icon card-icon" icon={faTrashAlt} />
+                    </div>
                 </div>
             </div>
             <div className="content-div">

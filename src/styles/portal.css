@@ -54,7 +54,12 @@ table {
 	background:rgba(50,50,50,.5);
 }
 
+.no-popup{
+	transform:scale(0);
+}
+
 .new-card-container{
+	transition: transform .2s;
     height:450px;
 	display:flex;
 	justify-content: center;

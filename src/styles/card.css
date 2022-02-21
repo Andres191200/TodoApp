@@ -1,3 +1,6 @@
+:root{
+    --showUpElementDelay: .15s;
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -49,6 +52,7 @@ table {
 }
 
 .card{
+    animation: showUpElement .3s forwards;
     margin:20px;
     border-radius:4px;
     height:30vh;
@@ -56,6 +60,36 @@ table {
     background:rgb(248, 226, 100);
     transition:transform .3s ease-out;
     justify-self: center;
+}
+
+.edit-card-icon{
+    animation: showUpIcon .5s forwards;
+    animation-delay: calc(var(--showUpElementDelay))    
+}
+.delete-card-icon{
+    animation: showUpIcon .5s forwards;
+    animation-delay: calc(var(--showUpElementDelay) + .1s)
+}
+
+.delete-card-icon, .edit-card-icon{
+    font: size 0;
+    transform:scale(0);
+    margin: 0 5px;
+}
+
+.delete-card-icon:hover, .edit-card-icon:hover{
+    color:#666;
+    cursor:pointer;
+}
+
+.card-icons-container{
+    display:flex;
+    justify-content: center;
+    width:5rem;
+}
+
+.card-icons-container > div{
+    width:40px;
 }
 
 .card > .title-div{
@@ -85,14 +119,14 @@ table {
     transform: scale(1.07);
 }
 
-.delete-card-icon, .edit-card-icon{
-    font-size: 20px;
-    transition:.3s;
-    margin: 0 5px;
+
+
+@keyframes showUpElement{
+    from {transform:scale(0)}
+    to {transform: scale(1)}
 }
 
-.delete-card-icon:hover, .edit-card-icon:hover{
-    color:#666;
-    cursor:pointer;
+@keyframes showUpIcon{
+    from{transform:scale(0); font-size: 0;}
+    to{transform:scale(1); font-size: 1;}
 }
-

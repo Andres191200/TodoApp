@@ -17,13 +17,13 @@ function App() {
   const [emptyCardCollection, setEmptyCardCollection] = useState(false)
 
   useEffect(async () => {
-    if(cards.length===0) setEmptyCardCollection(true);
+    if (cards.length === 0) setEmptyCardCollection(true);
     else setEmptyCardCollection(false);
   }, [cards]);
 
   const loadingCards = () => {
-    if(emptyCardCollection) return 'No cards';
-    if(document.getElementById('card') != null) return '';
+    if (emptyCardCollection) return 'No cards';
+    if (document.getElementById('card') != null) document.getElementById('no-cards').classList.add('no-visible');
     else return 'Loading...';
   }
 
@@ -35,30 +35,30 @@ function App() {
       </header>
 
       <div className="loading">
-        <h1>{loadingCards()}</h1>
+          <h1 className="no-cards" id="no-cards">{loadingCards()}</h1>
       </div>
 
       <div className="todo-cards" id="todo-cards">
         {
-          
+
           cards.map(card => {
             return (
               console.log(card),
-              <Card title={card.title} description={card.description} key={card.id}/>
-              
+              <Card title={card.title} description={card.description} key={card.id} />
+
             )
-            
+
           })
         }
       </div>
 
       <div className="plus-icon-div">
         <button onClick={() => setTrigger(!trigger)}>
-          <FontAwesomeIcon className="plus-icon" icon={faPlus}/>
+          <FontAwesomeIcon className="plus-icon" icon={faPlus} />
         </button>
       </div>
 
-      <Portal trigger={trigger} setTrigger={setTrigger} cards={cards} setCards={setCards}/>
+      <Portal trigger={trigger} setTrigger={setTrigger} cards={cards} setCards={setCards} />
 
     </div>
   );
