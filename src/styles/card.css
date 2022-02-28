@@ -52,14 +52,16 @@ table {
 }
 
 .card{
-    animation: showUpElement .3s forwards;
+    display:flex;
+    flex-direction: column;
     margin:20px;
     border-radius:4px;
     height:30vh;
     width: 300px;
     background:rgb(248, 226, 100);
-    transition:transform .3s ease-out;
+    transition: transform .5s ease-out;
     justify-self: center;
+    animation: showUpElement .3s;
 }
 
 .edit-card-icon{
@@ -73,8 +75,9 @@ table {
 
 .delete-card-icon, .edit-card-icon{
     font: size 0;
+    transition:color .3s;
     transform:scale(0);
-    margin: 0 5px;
+    margin-left: .5rem;
 }
 
 .delete-card-icon:hover, .edit-card-icon:hover{
@@ -82,24 +85,23 @@ table {
     cursor:pointer;
 }
 
-.card-icons-container{
+
+.main-info-container{
+    align-self: center;
     display:flex;
-    justify-content: center;
-    width:5rem;
-}
-
-.card-icons-container > div{
-    width:40px;
-}
-
-.card > .title-div{
+    justify-content: space-between;
+    width:95%;
     display:flex;
     font-size:1.5rem;
     font-weight: bold;
-    justify-content: space-between;
-    align-items: center;
-    height:15%;
+    height:30%;
     margin-top:5px;
+}
+
+
+.card-icons-container{
+    display:flex;
+    height:50%; 
 }
 
 .card > .content-div{
@@ -110,14 +112,11 @@ table {
     margin: 10px .5rem;
 }
 
-.card > div:not(.pencil-icon-div, .title-div){
-    display:flex;
-    flex-direction: column;
-}
 
 .card:hover{
     transform: scale(1.07);
 }
+
 
 
 

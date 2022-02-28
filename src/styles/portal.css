@@ -173,3 +173,8 @@ form > *{
 	display:inline;
 }
 
+.no-clickeable{
+	pointer-events: none;
+	background: #444;
+}
+
